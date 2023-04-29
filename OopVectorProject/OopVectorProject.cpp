@@ -50,6 +50,16 @@ public:
         return items[index];
     }
 
+    int& At(int index)
+    {
+        return items[index];
+    }
+
+    int& operator[](int index)
+    {
+        return items[index];
+    }
+
     ~Vector()
     {
         delete[]items;
@@ -58,12 +68,16 @@ public:
 
 int main()
 {
-    {
-        Vector v1(10);
-    }
-    
-    // other code
+    srand(time(nullptr));
 
+    Vector v;
+    for (int i = 0; i < 10; i++)
+        v.PushBack(rand() % 100);
+
+    v[5] = 100;
+
+    for (int i = 0; i < v.Size(); i++)
+        cout << v[i] << " ";
 
     
 }
